@@ -1,33 +1,44 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
- * print_diagonal - Draws a diagonal line on the terminal.
- * @n: The number of times the character \ should be printed.
+ * main - Prints the numbers from 1 to 100, but replaces
+ * multiples of 3 with "Fizz", multiples of 5 with "Buzz",
+ * and multiples of both with "FizzBuzz".
  *
- * Description: Uses _putchar to draw a diagonal line with \,
- * where each line is offset by one space. If n is 0 or less,
- * only a newline is printed.
+ * Description: Each number or word is followed by a space.
+ * Uses the standard library and prints to standard output.
  *
- * Return: Nothing.
+ * Return: 0 (Success).
  */
-void print_diagonal(int n)
+int main(void)
 {
-	int i, j;
+	int i;
 
-	if (n > 0)
+	for (i = 1; i <= 100; i++)
 	{
-		for (i = 0; i < n; i++)
+		if (i % 3 == 0 && i % 5 == 0)
 		{
-			for (j = 0; j < i; j++)
-			{
-				_putchar(' ');
-			}
-			_putchar('\\');
-			_putchar('\n');
+			printf("FizzBuzz");
+		}
+		else if (i % 3 == 0)
+		{
+			printf("Fizz");
+		}
+		else if (i % 5 == 0)
+		{
+			printf("Buzz");
+		}
+		else
+		{
+			printf("%d", i);
+		}
+
+		if (i < 100)
+		{
+			printf(" ");
 		}
 	}
-	else
-	{
-		_putchar('\n');
-	}
+	printf("\n");
+
+	return (0);
 }
